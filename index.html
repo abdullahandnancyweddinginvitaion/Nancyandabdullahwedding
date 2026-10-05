@@ -141,22 +141,11 @@
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="inner reveal">
-        <div class="section-kicker">Memories</div>
-        <h2 class="section-title">Our Story</h2>
-        <div class="ornament"></div>
-        <div class="photo-strip">
-          <div class="photo-placeholder">Add Couple Photo 1</div>
-          <div class="photo-placeholder">Add Couple Photo 2</div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" style="background:#fbf6ef">
       <div class="inner reveal">
-        <div class="section-kicker">Celebrate With Us</div>
+        <div class="section-kicker">Celebrate With Us</div><section class="pre-venue-photo reveal">
+    <img src="./venue-photo.jpg" alt="">
+</section>
         <h2 class="section-title">Venue</h2>
         <div class="venue-card">
           <div class="venue-visual"></div>
@@ -213,7 +202,31 @@
 
     function tick(){
       const diff = eventDate - new Date();
-      if(diff <= 0){ $('countdown').innerHTML = '<div style="grid-column:1/-1;font-size:2rem;color:#8c6a38">Today is the day ✨</div>'; return; }
+      if(diff <= 0){ $('countdown').innerHTML = '<divpre-venue-photo {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pre-venue-photo img {
+    width: min(900px, 100%);
+    height: auto;
+    display: block;
+    border-radius: 28px;
+    object-fit: cover;
+    box-shadow: 0 18px 50px rgba(83, 61, 38, 0.12);
+}
+
+@media (max-width: 768px) {
+    .pre-venue-photo {
+        padding: 40px 18px;
+    }
+
+    .pre-venue-photo img {
+        border-radius: 20px;
+    }
+} style="grid-column:1/-1;font-size:2rem;color:#8c6a38">Today is the day ✨</div>'; return; }
       const d=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
       $('days').textContent=String(d).padStart(2,'0'); $('hours').textContent=String(h).padStart(2,'0'); $('minutes').textContent=String(m).padStart(2,'0'); $('seconds').textContent=String(s).padStart(2,'0');
     }
